@@ -26,7 +26,7 @@ if [ "${#}" -ne "0" ] ; then
 
         -dc | --dir-c)
             # Generate a C makefile that uses multiple directories
-            cp ~/.make-init.d/minimal-c.mk ./makefile
+            cp ~/.make-init.d/multiple-dir-c.mk ./makefile
             ;;
 
         *)
