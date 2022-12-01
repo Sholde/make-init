@@ -1,0 +1,40 @@
+#!/bin/sh
+
+# Handle options
+if [ "${#}" -ne "0" ] ; then
+    case ${1} in
+        -h | --help)
+            # Print help
+            echo "Usage: make-init [options]..."
+            echo "Options:"
+            echo "  -h, --help            Display this information"
+            echo "  -v, --version         Display the version"
+            echo "  -c, -C                Generate a minimal C makefile"
+            echo "  -dc, --dir-c          Generate a C makefile that uses multiple directories"
+            ;;
+
+        -v | --version)
+            # Print version
+            echo "make-init 0.1.0"
+            echo "GNU General Public License v3.0"
+            ;;
+
+        -c | -C)
+            # Generate a minimal C makefile
+            cp ~/.make-init.d/minimal-c.mk ./makefile
+            ;;
+
+        -dc | --dir-c)
+            # Generate a C makefile that uses multiple directories
+            cp ~/.make-init.d/minimal-c.mk ./makefile
+            ;;
+
+        *)
+            # Unrecognized otpion
+            echo "Try --help"
+            exit 1
+            ;;
+    esac
+else
+    cp ~/.make-init.d/template.mk ./makefile
+fi
